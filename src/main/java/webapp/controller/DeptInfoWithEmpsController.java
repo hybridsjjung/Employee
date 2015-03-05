@@ -63,16 +63,15 @@ public class DeptInfoWithEmpsController extends HttpServlet {
 		response.setContentType("text/html; charset=utf-8"); 
 		log.info("dept called...");
 
-		String param = request.getParameter("deptno"); // 부서번호를 parameter로 받는다
+		String param = request.getParameter("deptno");
 		int deptno = 10;
-		deptno = Integer.parseInt(param); // String을 Integer로 변환
+		deptno = Integer.parseInt(param);
 		
 		DeptInfoService service = factory.getBean(DeptInfoService.class);
 		Dept dept = service.getDeptInfoWithEmps(deptno);
 		request.setAttribute("dept", dept);
 		
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/dept/infowithemps.jsp"); // view를 info.jsp에 넘긴다
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/dept/infowithemps.jsp");
 		rd.forward(request, response);
 		
 		

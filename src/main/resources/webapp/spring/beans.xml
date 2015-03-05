@@ -23,8 +23,6 @@
 		</list>
 	</property>
 </bean>
-
-
 <bean id="deptDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
 	<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	<property name="mapperInterface" value="webapp.dao.DeptDao"/>
