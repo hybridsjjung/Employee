@@ -16,11 +16,13 @@
 <h1> 부서 정보(with emps) </h1>
 <hr>
 
+<!-- EL -->
 deptno = ${requestScope.dept.deptno} <br>
 dname = ${requestScope.dept.dname} <br>
 loc = ${requestScope.dept.loc} <br>
 <hr>
 
+<!-- Scriptlet -->
 <%
 	Dept dept = (Dept)request.getAttribute("dept");
 	List<Emp> list = dept.getEmps();	
@@ -31,6 +33,7 @@ loc = ${requestScope.dept.loc} <br>
 %>
 <hr>
 
+<!-- JSTL + EL (taglib 사용)-->
 <c:forEach var="e" items="${requestScope.dept.emps}">
 	${pageScope.e.empno}, ${pageScope.e.ename}, ${pageScope.e.job} <br>
 </c:forEach>

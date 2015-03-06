@@ -8,6 +8,16 @@ public class Dept {
 	String loc;
 	List<Emp> emps;  // Dept : Emp = 1 : N 관계 (외래키)
 	
+	public Dept() {
+		
+	}
+	
+	public Dept(Integer deptno, String dname, String loc) {
+		this.deptno = deptno;
+		this.dname = dname;
+		this.loc = loc;
+	}
+	
 	public Integer getDeptno() {
 		return deptno;
 	}
@@ -32,5 +42,40 @@ public class Dept {
 	public void setEmps(List<Emp> emps) {
 		this.emps = emps;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == null)
+			return false;
+		
+		if(this.getClass() != obj.getClass()) 
+			return false;
+			
+		
+		boolean rtn = true;	
+		Dept target = (Dept)obj;	
+		
+		if(this.deptno != target.deptno) // => ((Dept)obj).deptno
+			rtn = false;
+		
+		if(this.dname == null) {
+			if(this.dname != target.dname)
+				rtn = false;
+		} else {
+			if(!this.dname.equals(target.dname))
+				rtn = false;
+		}
+			
+		if(this.loc == null) {
+			if(this.loc != target.loc)
+				rtn = false;
+		} else {
+			if(!this.loc.equals(target.loc))
+				rtn = false;
+		}
+			
+		return rtn;
+	}
+	
 	
 }

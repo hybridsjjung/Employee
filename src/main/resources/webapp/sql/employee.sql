@@ -29,3 +29,27 @@ rollback
 commit
 
 select * from dept;
+select * from emp;
+select * from bonus;
+select * from salgrade;
+
+
+
+REM #####################################
+REM DeptDao.selectAllWithEmps() 쿼리 Test
+REM #####################################
+
+select 	d.deptno 	as deptno,
+		d.dname 	as dname,
+		d.loc 		as loc,
+		e.empno 	as empco,
+		e.ename 	as ename,
+		e.job	 	as job,
+		e.mgr		as mgr,
+		e.hiredate 	as hiredate,
+		e.sal 		as sal,
+		e.comm 		as comm
+from dept d left outer join emp e
+	on d.deptno = e.deptno
+order by d.deptno asc, e.empno desc;
+	

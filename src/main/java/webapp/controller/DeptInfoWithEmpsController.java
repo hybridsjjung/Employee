@@ -19,6 +19,8 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import webapp.model.Dept;
 import webapp.service.DeptInfoService;
 
+// http://localhost:8080/Employee/dept/infowithemps?deptno=20
+
 /**
  * Servlet implementation class DeptController
  */
@@ -63,15 +65,16 @@ public class DeptInfoWithEmpsController extends HttpServlet {
 		response.setContentType("text/html; charset=utf-8"); 
 		log.info("dept called...");
 
-		String param = request.getParameter("deptno");
+		String param = request.getParameter("deptno"); // deptno를 parameter로 받는다
 		int deptno = 10;
-		deptno = Integer.parseInt(param);
+		deptno = Integer.parseInt(param); // String을 Integer로 변환
 		
 		DeptInfoService service = factory.getBean(DeptInfoService.class);
 		Dept dept = service.getDeptInfoWithEmps(deptno);
 		request.setAttribute("dept", dept);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/dept/infowithemps.jsp");
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/dept/infowithemps.jsp"); // view를 info.jsp에 넘긴다
 		rd.forward(request, response);
 		
 		

@@ -34,7 +34,7 @@ public class DeptInfoServiceTest {
 	ApplicationContext factory;
 	
 	@Test
-	public void testGetDeptInfo() {
+	public void test1_GetDeptInfo() {
 		log.info("###@@@ testDeptInfoService()");
 		
 		DeptInfoService service = factory.getBean(DeptInfoService.class);
@@ -49,7 +49,7 @@ public class DeptInfoServiceTest {
 	}
 	
 	@Test
-	public void testGetDeptInfoWithEmps() {
+	public void test2_GetDeptInfoWithEmps() {
 		
 		log.info("###@@@ testGetDeptInfoWithEmps()");
 		
@@ -71,7 +71,7 @@ public class DeptInfoServiceTest {
 	}
 
 	@Test
-	public void testGetDeptInfoAll() {
+	public void test3_GetDeptInfoAll() {
 	
 		log.info("###@@@ testGetDeptInfoAll()");
 		
