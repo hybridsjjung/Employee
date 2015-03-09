@@ -35,8 +35,7 @@
 	    <param-value>1234</param-value>
 	  </context-param>
 	<listener>
-	    <listener-class>webapp.listener.MyListener</listener-class>
-	    
+	    <listener-class>webapp.listener.MyListener</listener-class>    
 	</listener>
 
 </web-app>
