@@ -7,8 +7,10 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
@@ -27,6 +29,7 @@ import webapp.util.EmployeeDataSource;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:/webapp/spring/beans.xml")
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class DeptInfoServiceTest {
 	static Logger log = Logger.getLogger(DeptInfoServiceTest.class);
 	
@@ -83,6 +86,24 @@ public class DeptInfoServiceTest {
 		
 		for(Dept d : list) {
 			log.info(d.getDeptno() + ", " + d.getDname()+ ", " + d.getLoc());
+		}
+	}
+	
+	@Test
+	public void test4_GetDeptInfoAllWithEmps() {
+	
+		log.info("###@@@ testGetDeptInfoAllWithEmps()");
+		
+		DeptInfoService service = factory.getBean(DeptInfoService.class);
+		
+		List<Dept> list = service.getDeptInfoAllWithEmps();
+		
+		assertNotNull(list);
+		
+		for(Dept d : list) {
+			log.info(d.getDeptno() + ", " + d.getDname()+ ", " + d.getLoc());
+			for(Emp e : d.getEmps())
+				log.info(e.getEmpno() + ", " + e.getEname() + ", " + e.getJob());
 		}
 	}
 	
