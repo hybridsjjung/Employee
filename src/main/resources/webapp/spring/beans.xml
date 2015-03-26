@@ -7,6 +7,8 @@
 
 <context:property-placeholder location="classpath:/webapp/spring/db.properties"/>
 
+<context:component-scan base-package="webapp.service"/>
+
 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 	<property name="driverClassName" value="${oracle.className}"/>
 	<property name="url" value="${oracle.url}"/>

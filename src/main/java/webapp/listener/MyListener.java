@@ -43,7 +43,6 @@ public class MyListener implements ServletContextListener {
         log.info("###################################");
         
         ServletContext application = sce.getServletContext();
-        
         String className = application.getInitParameter("className");
         String url = application.getInitParameter("url");
         String user = application.getInitParameter("user");
